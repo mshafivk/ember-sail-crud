@@ -1,0 +1,29 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><img class="logo" src="/images/logo.png"/></a><a class="navbar-brand" href="#">Employee Manager CRUD Application</a>
+    </div>
+
+</div><!--/.navbar -->
+
+<div class="row-offcanvas row-offcanvas-left">
+  <div id="sidebar" class="sidebar-offcanvas">
+      <div class="col-md-12">
+        <ul class="nav nav-pills nav-stacked" style="padding-top:10px">
+          <li class="active"><a href="/">Overview</a></li>
+          <li>{{#link-to "employee"}}Employee List{{/link-to}}</li>
+          <li><a href="#">Find Employee</a></li>
+          <li>{{#link-to "employee.new"}}Create new Employee{{/link-to}}</li>
+
+        </ul>
+      </div>
+  </div>
+  <div id="main">
+      <div class="col-md-12">
+          <p class="visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+          </p>
+          {{outlet}}
+
+     </div>
+      </div>
+</div><!--/row-offcanvas -->

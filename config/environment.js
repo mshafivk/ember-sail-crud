@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ember-sails-crud',
+    podModulePrefix: 'ember-sails-crud/modules',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
@@ -16,7 +17,16 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+contentSecurityPolicy : {
+   'default-src': "'none'",
+  'script-src': "'self'", // Allow scripts from https://cdn.mxpnl.com
+  'font-src': "'self'", // Allow fonts to be loaded from http://fonts.gstatic.com
+  'connect-src': "'self' http://localhost:1337", // Allow data (ajax/websocket) from api.mixpanel.com and custom-api.local
+  'img-src': "'self'",
+  'style-src': "'self' 'unsafe-inline'", // Allow inline styles and loaded CSS from http://fonts.googleapis.com
+  'media-src': "'self'"
+}
   };
 
   if (environment === 'development') {

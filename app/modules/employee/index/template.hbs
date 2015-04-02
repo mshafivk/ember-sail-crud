@@ -1,0 +1,36 @@
+
+<div class="container">
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Employee Details</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Basic</th>
+            <th>Mobile</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each _employee in model}}
+
+        <tr>
+            <td>{{_employee.id}}</td>
+            <td>{{_employee.name}}</td>
+            <td>{{_employee.age}}</td>
+            <td>{{_employee.basic}}</td>
+            <td>{{_employee.mobile}}</td>
+            <td>{{#link-to "employee.show" _employee class="btn btn-primary btn-sm"}} <span class="glyphicon glyphicon-search"></span>&nbsp;Show{{/link-to}}</td>
+            <td>{{#link-to "employee.edit" _employee class="btn btn-warning btn-sm"}}<span class="glyphicon glyphicon-edit"></span>&nbsp;Edit{{/link-to}}</td>
+            <td><button type="button" {{action 'delete' _employee}} class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span>&nbsp;Delete</button></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+</div>
+</div>
