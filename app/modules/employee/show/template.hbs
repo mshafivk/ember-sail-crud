@@ -1,6 +1,12 @@
 <br/>
+ {{#if errors}}
+<div class="alert alert-danger" role="alert">
+    <strong>{{errors.status}}</strong>&nbsp;{{errors.statusDescription}}
+    </div>
+   {{/if}}
 <div class="container">
 
+    {{#if model}}
 <ul class="list-group">
             <li class="list-group-item  active">Profile</li>
             <li class="list-group-item">{{model.name}}</li>
@@ -8,7 +14,10 @@
             <li class="list-group-item">{{ model.age}}</li>
             <li class="list-group-item">{{ model.basic}}</li>
             <li class="list-group-item">{{model.mobile}}</li>
-            <li class="list-group-item "><a class="btn btn-medium btn-primary">Edit this User</a></li>
+            <li class="list-group-item ">{{#link-to 'employee.edit' model class="btn btn-medium btn-primary"}}Edit this User{{/link-to}}</li>
           </ul>
+    {{else}}
+    <span>{{status}}</span>
+    {{/if}}
 
 </div>

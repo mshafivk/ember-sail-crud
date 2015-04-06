@@ -1,4 +1,3 @@
-
 <div class="container">
 <div class="panel panel-primary">
   <!-- Default panel contents -->
@@ -27,7 +26,7 @@
             <td>{{_employee.mobile}}</td>
             <td>{{#link-to "employee.show" _employee class="btn btn-primary btn-sm"}} <span class="glyphicon glyphicon-search"></span>&nbsp;Show{{/link-to}}</td>
             <td>{{#link-to "employee.edit" _employee class="btn btn-warning btn-sm"}}<span class="glyphicon glyphicon-edit"></span>&nbsp;Edit{{/link-to}}</td>
-            <td><button type="button" {{action 'delete' _employee}} class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span>&nbsp;Delete</button></td>
+            <td><button type="button" {{action 'showModal' 'delete-user-modal' _employee}} class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span>&nbsp;Delete</button></td>
         </tr>
         {{/each}}
     </tbody>
