@@ -13,27 +13,16 @@ export default DS.RESTAdapter.extend({
   },
      ajaxError: function(jqXHR, responseText, errorThrown) {
     var error = this._super(jqXHR);
-
+    var jsonErrors=null;
     if (jqXHR && jqXHR.status === 422) {
-      var jsonErrors = Ember.$.parseJSON(jqXHR.responseText);
+      jsonErrors = Ember.$.parseJSON(jqXHR.responseText);
 
       return new DS.InvalidError(jsonErrors);
     } else {
-      return error;
+     // return error;
+         jsonErrors = Ember.$.parseJSON(jqXHR.responseText);
+        return new DS.InvalidError(jsonErrors);
     }
-    /*var isObject = jqXHR !== null && typeof jqXHR === 'object';
 
-    if (isObject) {
-      jqXHR.then = null;
-      if (!jqXHR.errorThrown) {
-        if (typeof errorThrown === 'string') {
-          jqXHR.errorThrown = new Error(errorThrown);
-        } else {
-          jqXHR.errorThrown = errorThrown;
-        }
-      }
-    }
-console.log(jqXHR);
-    return jqXHR;*/
   },
 });
